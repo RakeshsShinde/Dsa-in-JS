@@ -14,7 +14,7 @@ S.C => o(n) becuase need extra array to store unique elements
 function removeduplicate(arr, n) {
 
     if (n < 2) {         //array have one or no elements 
-        return n;
+        return arr;
     }
 
     let temp = [];
@@ -38,5 +38,38 @@ function removeduplicate(arr, n) {
 
 const arr = [2, 2, 2, 2, 2];
 console.log(removeduplicate(arr, arr.length));
+
+
+
+/*
+ reduce the space  complexity by maintaining the a seperate index for same array
+ as maintained for different array
+ 
+ 1) traverse the input array  from 0 to n
+  . if unique element is found then swap the arr[j] & arr[i]
+  .keep track of count of unique elements .
+
+2)return arr[]
+
+T.C => o(n)
+S.C =>o(1)
+*/
+
+function removeduplicateII(arr, n) {
+    if (n < 2) return arr;
+    let j = 0;
+
+    for (let i = 0; i < n; i++) {
+        if (arr[i] != arr[i + 1]) {
+            arr[j++] = arr[i];
+        }
+    }
+
+    arr.splice(j);
+    return arr;
+}
+
+const ip = [1, 2, 2, 3, 4, 4, 4, 5, 5];
+console.log(removeduplicate(ip, ip.length));
 
 
