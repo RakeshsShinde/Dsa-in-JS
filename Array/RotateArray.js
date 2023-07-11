@@ -64,10 +64,8 @@ function rotateByd(arr, k) {
         k = k % arr.length;
     }
 
-    reverseArray(arr, 0, k);                            //reverse the elements from o to k except the elements which need rotate
-    reverseArray(arr, arr.length - k, arr.length - 1);  //reverse elements to which need to rotate 
+    reverseArray(arr, arr.length - k, arr.length - 1);   //reverse the elements which need to rotate ..
     reverseArray(arr, 0, arr.length - 1);               //rotate the whole array from 0 to n-1
-
     return arr;
 }
 
