@@ -1,3 +1,22 @@
+//Brute force approach:using set
+
+function rmDuplicate(arr = [], n) {
+    let set = new Set(arr);
+    arr.length = 0;
+
+    set.forEach((value) => {
+        arr.push(value);
+    })
+    return arr;
+}
+
+
+let input = [1, 2, 2, 3, 4, 4, 4, 5, 5]
+console.log(rmDuplicate(input, input.length))
+
+// T.C :O(n)
+// S.C:O(n)
+
 /*   Remove duplicate from sorted array :
 first approch :
 
