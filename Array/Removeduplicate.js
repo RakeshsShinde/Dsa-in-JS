@@ -17,6 +17,25 @@ console.log(rmDuplicate(input, input.length))
 // T.C :O(n)
 // S.C:O(n)
 
+//two pointer approach 
+function rmDuplicateI(arr, n) {
+    let first = 0;
+
+    for (let second = 1; second < n; second++) {
+        if (arr[first] !== arr[second]) {
+            first++;
+            arr[first] = arr[second];
+        }
+    }
+    return first + 1;
+}
+
+let nums = [1, 1, 1, 2, 2, 2, 2, 2, 4, 4, 4, 4, 5, 5, 5, 6, 7]
+console.log(rmDuplicateI(nums, nums.length))
+
+// T.C:O(n)
+// S.C:O(n)
+
 /*   Remove duplicate from sorted array :
 first approch :
 
