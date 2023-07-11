@@ -23,6 +23,34 @@ console.log(getSecondLargest(arr, arr.length));
 
 //optimized way:
 
+function secondLargest(arr, n) {
+    let firstMax = -Infinity;
+    let secondMax = -Infinity;
 
+    if (arr.length < 2) return -1;
+
+    //find largest number   :O(n)
+    for (let i = 0; i < n; i++) {
+        if (arr[i] > firstMax) {
+            firstMax = arr[i];
+        }
+    }
+
+    // find second Largest   :O(n)
+    for (let i = 0; i < n; i++) {
+        if (arr[i] > secondMax && arr[i] < firstMax) {
+            secondMax = arr[i];
+        }
+    }
+    return secondMax;
+
+}
+
+
+const arr1 = [45, 78, 34, 57, 15, 2, 65, 120, 114];
+console.log(secondLargest(arr1, arr1.length));
+
+
+//Time complexity:O(n)
 
 
