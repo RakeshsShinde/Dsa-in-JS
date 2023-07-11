@@ -3,16 +3,14 @@
 //brute force approach:
 function getSecondLargest(arr, n) {
     arr = Array.from(new Set(arr));
-    if (n >= 2) {                     //if array have more than 2 element 
-        arr.sort((a, b) => {
-            return b - a;
-        })
 
-        return arr[1];
-    }
+    if (n < 2) return -1;
 
-    return -1;
+    arr.sort((a, b) => {
+        return b - a;
+    })
 
+    return arr[1];
 }
 
 
