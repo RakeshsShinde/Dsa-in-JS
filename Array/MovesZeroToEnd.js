@@ -38,3 +38,35 @@ console.log(moveallZeros(arr, arr.length));
 
 // Time Complexity:O(n)
 //Space complexity:O(n)
+
+//optimized approach :using Two pointer 
+
+function moveZeros(arr, n) {
+    //step 1:place the first pointer to the first Zero in array
+    var first;
+    for (let i = 0; i < n; i++) {
+        if (arr[i] === 0) {
+            first = i;
+            break;
+        }
+    }
+
+    //step 2:traverse the elements from first+1 to n 
+    // and if element is non-negative then swap  that non-negative with Zero 
+    // increment first++
+
+    for (let i = first + 1; i < n; i++) {
+        var temp;
+        if (arr[i] !== 0) {
+            temp = arr[first];
+            arr[first] = arr[i];
+            arr[i] = temp;
+            first++;
+        }
+    }
+
+    return arr;
+}
+
+const nums = [1, 2, 0, 3, 2, 0, 1, 0, 0, 4, 5];
+console.log(moveZeros(nums, nums.length))
