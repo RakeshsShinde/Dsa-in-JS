@@ -66,3 +66,28 @@ console.log(getPairs(nums, n));
 // time complexity:o(n)
 // space complexity:o(n) using Map to store key value pair
 
+//optimal solution :using Two pointers
+
+function getPairKsum(arr, total) {
+    let i = 0, j = arr.length - 1;
+    const ans = [];
+    let sum = 0;
+    while (i < j) {
+        sum = arr[i] + arr[j];
+        if (sum === total) {
+            ans.push([i, j]);
+            i++;
+            j--;
+        } else if (sum > total) {
+            j--;
+        } else {
+            i++;
+        }
+    }
+
+    return ans;
+}
+
+const arr1 = [1, 2, 3, 6, 7, 8, 10];
+const total = 9;
+console.log(getPairKsum(arr1, total));
